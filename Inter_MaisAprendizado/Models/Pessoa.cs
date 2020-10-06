@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inter_MaisAprendizado.Models
 {
-    abstract class Pessoa
+    public abstract class Pessoa
     {
         public int IdPessoa { get; set; }
 
