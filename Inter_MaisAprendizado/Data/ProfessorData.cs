@@ -17,7 +17,7 @@ namespace Inter_MaisAprendizado.Data
             cmd.CommandText = "AdicionarProfessor";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            // Colocando os dados recebidos pelo objeto Cliente
+
             SqlParameter ParNome = new SqlParameter();
             ParNome.ParameterName = "@Nome";
             ParNome.SqlDbType = SqlDbType.VarChar;
@@ -39,8 +39,8 @@ namespace Inter_MaisAprendizado.Data
             cmd.Parameters.Add(ParDataNasc);
 
             SqlParameter ParCredito = new SqlParameter();
-            ParCredito.ParameterName = "@DataNasc";
-            ParCredito.SqlDbType = SqlDbType.Money;
+            ParCredito.ParameterName = "@Credito";
+            ParCredito.SqlDbType = SqlDbType.Decimal;
             ParCredito.Value = professor.Credito;
             cmd.Parameters.Add(ParCredito);
 
@@ -56,6 +56,40 @@ namespace Inter_MaisAprendizado.Data
             cmd.CommandType = CommandType.StoredProcedure;
 
 
+            SqlParameter ParPessoaId = new SqlParameter();
+            ParPessoaId.ParameterName = "@PessoaId";
+            ParPessoaId.SqlDbType = SqlDbType.Int;
+            ParPessoaId.Value = professor.IdPessoa;
+            cmd.Parameters.Add(ParPessoaId);
+
+            SqlParameter ParNome = new SqlParameter();
+            ParNome.ParameterName = "@Nome";
+            ParNome.SqlDbType = SqlDbType.VarChar;
+            ParNome.Size = 50;
+            ParNome.Value = professor.Nome;
+            cmd.Parameters.Add(ParNome);
+
+            SqlParameter ParEmail = new SqlParameter();
+            ParEmail.ParameterName = "@Email";
+            ParEmail.SqlDbType = SqlDbType.VarChar;
+            ParEmail.Size = 30;
+            ParEmail.Value = professor.Email;
+            cmd.Parameters.Add(ParEmail);
+
+            SqlParameter ParDataNasc = new SqlParameter();
+            ParDataNasc.ParameterName = "@DataNasc";
+            ParDataNasc.SqlDbType = SqlDbType.Date;
+            ParDataNasc.Value = professor.DataNasc;
+            cmd.Parameters.Add(ParDataNasc);
+
+            SqlParameter ParCredito = new SqlParameter();
+            ParCredito.ParameterName = "@Credito";
+            ParCredito.SqlDbType = SqlDbType.Decimal;
+            ParCredito.Value = professor.Credito;
+            cmd.Parameters.Add(ParCredito);
+
+            // Execução da string 
+            cmd.ExecuteNonQuery();
         }
     }
 }
